@@ -1,0 +1,43 @@
+_repo: The-Errand-Boy--Or-How-Phil-Brent-Won-Success_462
+_version: 0.0.1
+creator:
+  author:
+    agent_name: Alger, Horatio
+    aliases:
+    - Preston, Charles F.
+    - Putnam, Arthur Lee
+    - Starr, Julian
+    birthdate: 1832
+    deathdate: 1899
+    gutenberg_agent_id: '168'
+    url: http://www.gutenberg.org/2009/agents/168
+    wikipedia: http://en.wikipedia.org/wiki/Horatio_Alger,_Jr.
+description: ''
+gutenberg_bookshelf: Children's Fiction
+gutenberg_issued: '2006-03-15'
+gutenberg_type: Text
+identifiers:
+  gutenberg: '462'
+language: en
+publisher: Project Gutenberg
+rights: Public domain in the USA.
+rights_url: http://creativecommons.org/about/pdm
+subjects:
+- !lcsh 'Success -- Juvenile fiction'
+- !lcc 'PS'
+- !lcsh 'Impostors and imposture -- Juvenile fiction'
+- !lcsh 'Diligence -- Juvenile fiction'
+- !lcc 'PZ'
+- !lcsh 'Conduct of life -- Juvenile fiction'
+- !lcsh 'Orphans -- Juvenile fiction'
+- !lcsh 'New York (N.Y.) -- History -- 1865-1898 -- Juvenile fiction'
+- !lcsh 'Inheritance and succession -- Juvenile fiction'
+- !lcsh 'Youth -- Conduct of life -- Juvenile fiction'
+- !lcsh 'Fathers and sons -- Juvenile fiction'
+- !lcsh 'Stepmothers -- Juvenile fiction'
+- !lcsh 'Self-reliance -- Juvenile fiction'
+- !lcsh 'Street life -- Juvenile fiction'
+- GITenberg
+tableOfContents: The errand boy -- Fred Sargent's revenge -- The smuggler's trap.
+title: The Errand Boy; Or, How Phil Brent Won Success
+url: http://www.gutenberg.org/ebooks/462
