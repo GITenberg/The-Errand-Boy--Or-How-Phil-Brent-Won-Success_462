@@ -1,0 +1,61 @@
+sudo: required
+dist: trusty
+language: ruby
+
+before_install:
+before_install:
+- gem install asciidoctor -v 1.5.2
+- gem install tilt
+- sudo pip install git+https://github.com/gitenberg-dev/gitberg
+- sudo pip install pillow
+- sudo pip install cssutils
+- sudo pip install docutils
+- sudo pip install roman
+- sudo pip install git+https://github.com/gitenberg-dev/pg-epubmaker
+script:
+- VERSION=`ruby -e "require 'yaml'; meta = YAML.load_file('metadata.yaml'); puts meta['_version'];"`
+- git clone https://github.com/gitenberg-dev/asciidoctor-htmlbook.git
+- sudo pip install -r asciidoctor-htmlbook/gitberg-machine/requirements.txt
+
+- /usr/bin/python -c "from gitenberg import travis; travis.build_epub()"
+- ebook-convert book.epub book.mobi
+- xvfb-run ebook-convert book.epub book.pdf
+branches:
+  only:
+  - master
+notifications:
+  webhooks:
+    urls:
+      - https://unglue.it/api/travisci/webhook
+    on_success: always
+    on_failure: never
+    on_start: never
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: MrRO5ZvCdLAXggw++C1t3cUvR1Z9M8wbxKrd8qkEhELRp5+i5dVUwt11Qmh9+TfFXjvKnqsEIj/eMAodKEQLMM8zxRg4griRLSayM/8tOtpo/tLBlBEiAwkvbl+GmUY0Hu/k6WtUlB/TmLnmmKd6G8AItRrO2puch0t2MOj/3HYmQwul7Mwm3zYKgDWiZ7d4iTd8KBfRF8s/oopmKAudKwO1JyMn3KQhIDwhHlba+EfUCbRZKW9u5yqceZY8+MFPTr+7zdJnyEa1J37S/aa85ZFpoyUg9sym7eYN04wFPayAvTnSs7XpVsm0QHoX/xd2Fr3xQrQ6O5WHVP9h6fBF2RWojQ8t6sfAWzxDIkesGCCrcJ2b++uC/iQ/jWrgFvuIkThNyWfQ3hb7P5Uau/ZSiZt3/ixXLVBCtmw727KnkFjyzLsmnweJFXoKRmg1eieFlP5rvSueJNxsX7plpBiNcJ052hyqbLkxXLYeJao9MNy0BCxX3zlt7EGREfMPJSaLAmlNIXQebYAEHoxN0mc9axqN8pnc2XYglTOpweG3gbrghF7YArmgbdk/f8rZW7FQHL+BqwlxxNwupsa7xy+thmz7Q0SihFSK5mYmmyxvsYPgecu2BDzyBV7CmSVSTa0TJ4fZg5gZuVDbLU6V3HCmlkEy8aU2mN2R3jV7k8Uu+yY=
+  file:
+    - book.epub
+    - book.mobi
+    - book.pdf
+  "on":
+    repo: GITenberg/The-Errand-Boy--Or-How-Phil-Brent-Won-Success_462
+addons:
+  apt:
+    packages:
+    - xsltproc
+    - xvfb
+    - calibre
+    - python-pip
+    - git
+    - python-dev
+    - libjpeg-dev
+    - libpng-dev
+    - libfreetype6
+    - libfreetype6-dev
+    - zlib1g-dev
+    - python-lxml
+    - libxml2-dev
+    - libxslt1-dev
+    - tidy
